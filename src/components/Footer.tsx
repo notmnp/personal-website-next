@@ -21,7 +21,7 @@ export function Footer() {
   useEffect(() => {
     const fetchLastCommitDate = async () => {
       try {
-        const response = await fetch('https://api.github.com/repos/notmnp/personal-website/commits/main')
+        const response = await fetch('https://api.github.com/repos/notmnp/personal-website-next/commits/main')
         const data = await response.json()
         
         if (data && data.commit && data.commit.committer) {

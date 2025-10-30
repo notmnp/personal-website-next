@@ -1,65 +1,91 @@
-import Image from "next/image";
+import { Navbar } from '@/components/Navbar'
+import { Button } from '@/components/ui/button'
+import { ChatDock } from '@/components/ChatDock'
+import { Linkedin, FileText, Github } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { About } from '@/components/About'
+import { Experiences } from '@/components/Experiences'
+import { Projects } from '@/components/Projects'
+import { Footer } from '@/components/Footer'
+import AnimatedSignature from '@/components/AnimatedSignature'
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <>
+      <Navbar />
+
+      {/* Hero */}
+      <main className="relative overflow-hidden pb-32">
+        <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-6 py-20 -mt-15 md:-mt-20">
+          <div className="relative flex items-center justify-center w-full max-w-4xl mx-auto">
+            <div
+              className={cn(
+                "absolute inset-0 rounded-3xl",
+                "[background-size:40px_40px]",
+                "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
+                "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]",
+                "[mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]"
+              )}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            
+            <div className="relative z-20 p-16 animate-in fade-in slide-in-from-bottom-6 duration-1000 ease-out">
+            {/* Status Badge */}
+            <div className="mb-12">
+              <a href="mailto:mpattni@uwaterloo.ca" className="inline-block">
+                <div className="inline-flex items-center gap-2 border border-zinc-200 dark:border-zinc-700/50 rounded-full px-4 py-2 bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 cursor-pointer backdrop-blur-sm">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300 whitespace-nowrap">
+                    Seeking Fall 2026 Internships!
+                  </span>
+                </div>
+              </a>
+            </div>
+
+            <div className="mb-8 flex justify-center">
+              <div className="text-6xl md:text-8xl lg:text-9xl text-zinc-900 dark:text-zinc-100 drop-shadow-lg">
+                <AnimatedSignature />
+              </div>
+            </div>
+            <p className="max-w-md text-base md:text-lg text-zinc-700 dark:text-zinc-300 transition-none mb-12">
+              Currently coding, cramming, and caffeinating at the University of Waterloo.
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-4">
+            <Button asChild variant="default" size="lg" className="rounded-xl bg-zinc-900 dark:bg-zinc-100 hover:bg-zinc-800 dark:hover:bg-zinc-200 text-zinc-100 dark:text-zinc-900 border-0 shadow-sm backdrop-blur-sm">
+              <a href="https://www.linkedin.com/in/pattni" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="w-4 h-4 mr-2" />
+                LinkedIn
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="rounded-xl bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border border-zinc-200 dark:border-zinc-700 hover:bg-white dark:hover:bg-zinc-800 shadow-sm">
+              <a href="https://drive.google.com/file/d/1PbCPMxl7v5ztaInkgy_vCxyGc2hIEsrI/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                <FileText className="w-4 h-4 mr-2" />
+                Resume
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="rounded-xl bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border border-zinc-200 dark:border-zinc-700 hover:bg-white dark:hover:bg-zinc-800 shadow-sm">
+              <a href="https://github.com/notmnp" target="_blank" rel="noopener noreferrer">
+                <Github className="w-4 h-4 mr-2" />
+                GitHub
+              </a>
+            </Button>
+            </div>
+            </div>
+          </div>
         </div>
+
+        <div className="h-20"></div>
       </main>
-    </div>
-  );
+
+      <About />
+
+      <Experiences />
+
+      <Projects />
+
+      <Footer />
+
+      <ChatDock />
+    </>
+  )
 }

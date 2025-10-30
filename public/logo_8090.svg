@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 540 159" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,278,0)">
+        <path d="M0,0L123,0L123,159L0,159L0,123L49,123L49,88L0,88L0,0ZM50,53L50,87L84,87L84,53L50,53Z" style="fill:white;fill-rule:nonzero;"/>
+    </g>
+    <path d="M0,0L121,0L121,159L0,159L0,0ZM36,37L36,71L84,71L84,37L36,37ZM36,88L36,123L84,123L84,88L36,88Z" style="fill:white;fill-rule:nonzero;"/>
+    <g transform="matrix(1,0,0,1,139,0)">
+        <path d="M0,0L123,0L123,159L0,159L0,0ZM36,37L36,123L84,123L84,37L36,37Z" style="fill:white;fill-rule:nonzero;"/>
+    </g>
+    <g transform="matrix(1,0,0,1,419,0)">
+        <path d="M0,0L121,0L121,159L0,159L0,0ZM37,37L37,123L85,123L85,37L37,37Z" style="fill:white;fill-rule:nonzero;"/>
+    </g>
+</svg>

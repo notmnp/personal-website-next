@@ -18,39 +18,9 @@ const navItems: NavItem[] = [
   { href: '#projects', label: 'Projects' },
 ]
 
-function NavLink({ href, label, external = false, onClick }: NavItem & { onClick?: () => void }) {
-  const [isActive, setIsActive] = useState(false)
-
-  useEffect(() => {
-    const checkActive = () => {
-      let targetElement: HTMLElement | null = null
-      const targetId = href.replace('#', '')
-      
-      switch (targetId) {
-        case 'about':
-          targetElement = document.querySelector('section')
-          break
-        case 'experience':
-          targetElement = document.querySelector('section:nth-of-type(2)')
-          break
-        case 'projects':
-          targetElement = document.querySelector('section:nth-of-type(3)')
-          break
-        case 'contact':
-          targetElement = document.querySelector('footer')
-          break
-      }
-
-      if (targetElement) {
-        const rect = targetElement.getBoundingClientRect()
-        setIsActive(rect.top <= 100 && rect.bottom >= 100)
-      }
-    }
-
-    window.addEventListener('scroll', checkActive)
-    checkActive()
-    return () => window.removeEventListener('scroll', checkActive)
-  }, [href])
+function NavLink({ href, label, external = false, onClick, activeSection }: NavItem & { onClick?: () => void, activeSection: string }) {
+  const targetId = href.replace('#', '')
+  const isActive = activeSection === targetId
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault()
@@ -107,9 +77,41 @@ export function Navbar() {
   const { theme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('about')
 
   useEffect(() => {
     setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    const checkActiveSection = () => {
+      const sections = [
+        { id: 'about', element: document.querySelector('section') },
+        { id: 'experience', element: document.querySelector('section:nth-of-type(2)') },
+        { id: 'projects', element: document.querySelector('section:nth-of-type(3)') },
+      ]
+
+      let closestSection = 'about'
+      let closestDistance = Infinity
+
+      sections.forEach(({ id, element }) => {
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          const distance = Math.abs(rect.top - 120)
+          
+          if (rect.top <= 120 && rect.bottom >= 120 && distance < closestDistance) {
+            closestDistance = distance
+            closestSection = id
+          }
+        }
+      })
+
+      setActiveSection(closestSection)
+    }
+
+    window.addEventListener('scroll', checkActiveSection)
+    checkActiveSection()
+    return () => window.removeEventListener('scroll', checkActiveSection)
   }, [])
 
   if (!mounted) return null
@@ -148,7 +150,7 @@ export function Navbar() {
             <div className="hidden md:flex items-center gap-8">
               <nav className="flex items-center gap-6">
                 {navItems.map((item) => (
-                  <NavLink key={item.href} {...item} />
+                  <NavLink key={item.href} {...item} activeSection={activeSection} />
                 ))}
               </nav>
               
@@ -190,7 +192,7 @@ export function Navbar() {
                 <div className="space-y-4">
                   {navItems.map((item) => (
                     <div key={item.href} className="block">
-                      <NavLink {...item} onClick={() => setIsMobileMenuOpen(false)} />
+                      <NavLink {...item} onClick={() => setIsMobileMenuOpen(false)} activeSection={activeSection} />
                     </div>
                   ))}
                 </div>

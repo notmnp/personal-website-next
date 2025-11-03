@@ -66,8 +66,8 @@ function NavLink({ href, label, external = false, onClick, activeSection }: NavI
       className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-all duration-200 transition-none group"
     >
       {label}
-      <span className={`absolute -bottom-1 left-0 h-0.5 bg-foreground transition-all duration-200 ${
-        isActive ? 'w-full' : 'w-0 group-hover:w-full'
+      <span className={`absolute -bottom-1 left-0 h-[1.5px] transition-all duration-200 ${
+        isActive ? 'w-full bg-foreground' : 'w-0 group-hover:w-full group-hover:bg-foreground/80'
       }`} />
     </a>
   )

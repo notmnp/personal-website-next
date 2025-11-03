@@ -114,7 +114,7 @@ export function Navbar() {
 
   if (!mounted) return null
 
-  const logoSrc = theme === 'dark' ? '/logo_mp.svg' : '/logo_mp_dark.svg'
+  const logoSrc = theme === 'light' ? '/logo_mp_dark.svg' : '/logo_mp.svg'
 
   return (
     <>
@@ -158,7 +158,7 @@ export function Navbar() {
             <div className="md:hidden relative z-[10001]">
               <Hamburger
                 size={20}
-                color={theme === 'dark' ? 'white' : '#374151'}
+                color={theme === 'light' ? '#374151' : 'white'}
                 rounded
                 duration={0.3}
                 distance="md"

@@ -21,7 +21,7 @@ export function Experiences() {
     {
       id: "8090",
       company: "8090 Solutions",
-      logo: theme === 'dark' ? '/logo_8090.svg' : '/logo_8090_dark.svg',
+      logo: theme === 'light' ? '/logo_8090_dark.svg' : '/logo_8090.svg',
       position: "AI Software Engineering Intern",
       duration: "May 2025 - Aug 2025",
       location: "Menlo Park, California",
@@ -35,7 +35,7 @@ export function Experiences() {
     {
       id: "rtx", 
       company: "Pratt & Whitney",
-      logo: theme === 'dark' ? '/logo_rtx.svg' : '/logo_rtx_dark.svg',
+      logo: theme === 'light' ? '/logo_rtx_dark.svg' : '/logo_rtx.svg',
       position: "Software Engineering Intern",
       duration: "Sep 2024 - Dec 2024",
       location: "Toronto, Ontario",
@@ -49,7 +49,7 @@ export function Experiences() {
     {
       id: "td",
       company: "TD Bank", 
-      logo: theme === 'dark' ? '/logo_td.svg' : '/logo_td_dark.svg',
+      logo: theme === 'light' ? '/logo_td_dark.svg' : '/logo_td.svg',
       position: "Software Engineering Intern",
       duration: "Jan 2024 - Apr 2024",
       location: "Toronto, Ontario",

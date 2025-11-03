@@ -100,15 +100,16 @@ export const ChatDock: React.FC = () => {
         `}
       </style>
       <div className={cn(
+        "hidden md:flex",
         "fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 animate-in slide-in-from-bottom-full duration-1750 ease-out",
         "bg-background/70 dark:bg-background/20 backdrop-blur-3xl transition-none",
         "border border-border/50 dark:border-white/10 rounded-[2rem] lg:rounded-[2.5rem] shadow-sm",
-        "flex flex-col",
+        "flex-col",
         isExpanded && "transition-[width,height] duration-500 ease-out",
         "w-[95vw] max-w-5xl md:max-w-2xl",
         isExpanded 
           ? "h-[85vh] max-h-[600px]" 
-          : "h-16 lg:h-20"
+          : "h-20"
       )}>
       
         {/* Header with close button - only when expanded */}
@@ -205,7 +206,7 @@ export const ChatDock: React.FC = () => {
 
         {/* Input area - always at bottom, never moves */}
         <div className={cn(
-          "flex-shrink-0 p-3 lg:p-4 h-16 lg:h-20",
+          "flex-shrink-0 p-4 h-20",
           isExpanded && "border-t border-border/50 dark:border-white/5"
         )}>
           <div className={cn(
@@ -224,7 +225,7 @@ export const ChatDock: React.FC = () => {
                 "border border-border/50 dark:border-white/10",
                 "text-foreground placeholder:text-muted-foreground/60",
                 "focus:outline-none focus:ring-2 focus:ring-[#0078D4]/50 focus:border-transparent",
-                "h-10 lg:h-12 text-sm sm:text-base"
+                "h-12 text-base"
               )}
             />
             <Button
@@ -234,11 +235,11 @@ export const ChatDock: React.FC = () => {
               className={cn(
                 "absolute right-2 top-1/2 transform -translate-y-1/2",
                 "bg-[#0078D4] hover:bg-[#006CBE] transition-transform duration-200 active:scale-95",
-                "disabled:opacity-50 h-7 w-7 sm:h-8 sm:w-8 rounded-full",
+                "disabled:opacity-50 h-8 w-8 rounded-full",
                 "cursor-pointer disabled:cursor-not-allowed transition-none"
               )}
             >
-              <ArrowUp className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-white" />
+              <ArrowUp className="h-4 w-4 text-white" />
             </Button>
           </div>
         </div>

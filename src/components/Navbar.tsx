@@ -118,6 +118,9 @@ export function Navbar() {
 
   return (
     <>
+      {/* Top gradient shadow */}
+      <div className="fixed top-0 left-0 right-0 h-[calc(1rem+2rem+2rem)] pointer-events-none z-[9999] bg-gradient-to-b from-white/60 dark:from-black/60 to-transparent" />
+      
       <nav className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-[10000] transition-[transform] duration-300 animate-in slide-in-from-top-full duration-1500 ease-out ${
         'bg-background/60 dark:bg-background/20 backdrop-blur-3xl border border-border/50 dark:border-white/10 shadow-sm' 
       } rounded-[2rem] w-[95vw] max-w-5xl`}>

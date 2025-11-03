@@ -79,7 +79,12 @@ export const ChatDock: React.FC = () => {
 
   const handleClose = () => {
     setIsExpanded(false)
-    setInput('')
+  }
+
+  const handleInputDoubleClick = () => {
+    if (!isExpanded && messages.length > 0) {
+      setIsExpanded(true)
+    }
   }
 
   return (
@@ -99,10 +104,14 @@ export const ChatDock: React.FC = () => {
           }
         `}
       </style>
+      
+      {/* Bottom gradient shadow */}
+      <div className="hidden md:block fixed bottom-0 left-0 right-0 h-[calc(1.5rem+2.5rem)] pointer-events-none z-40 bg-gradient-to-t from-white/60 dark:from-black/60 to-transparent" />
+      
       <div className={cn(
         "hidden md:flex",
-        "fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 animate-in slide-in-from-bottom-full duration-1750 ease-out",
-        "bg-background/70 dark:bg-background/20 backdrop-blur-3xl transition-none",
+        "fixed bottom-6 left-1/2 -translate-x-1/2 z-50",
+        "bg-background/70 dark:bg-background/20 backdrop-blur-3xl",
         "border border-border/50 dark:border-white/10 rounded-[2rem] lg:rounded-[2.5rem] shadow-sm",
         "flex-col",
         isExpanded && "transition-[width,height] duration-500 ease-out",
@@ -218,6 +227,7 @@ export const ChatDock: React.FC = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
+              onDoubleClick={handleInputDoubleClick}
               placeholder="Ask me anything..."
               className={cn(
                 "w-full px-4 pr-12 rounded-full transition-none",

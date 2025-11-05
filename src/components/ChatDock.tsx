@@ -91,16 +91,16 @@ export const ChatDock: React.FC = () => {
     <>
       <style>
         {`
-          @keyframes breathe {
-            0%, 100% { 
-              transform: scale(0.95);
+          @keyframes slideUpDelayed {
+            0%, 25% {
+              transform: translate(-50%, 200%);
             }
-            50% { 
-              transform: scale(1.05);
+            100% {
+              transform: translate(-50%, 0);
             }
           }
-          .breathing-circle {
-            will-change: transform;
+          .slide-up-delayed {
+            animation: slideUpDelayed 2s ease-out forwards;
           }
         `}
       </style>
@@ -110,8 +110,9 @@ export const ChatDock: React.FC = () => {
       
       <div className={cn(
         "hidden md:flex",
-        "fixed bottom-6 left-1/2 -translate-x-1/2 z-50",
-        "bg-background/70 dark:bg-background/20 backdrop-blur-3xl",
+        "fixed bottom-6 left-1/2 z-50",
+        "slide-up-delayed",
+        "bg-background/70 dark:bg-background/70 backdrop-blur-3xl",
         "border border-border/50 dark:border-white/10 rounded-[2rem] lg:rounded-[2.5rem] shadow-sm",
         "flex-col",
         isExpanded && "transition-[width,height] duration-500 ease-out",
@@ -133,7 +134,7 @@ export const ChatDock: React.FC = () => {
               </div>
               <div>
                 <h2 className="font-medium text-sm text-foreground/90">Chat with Milan</h2>
-                <p className="text-xs text-muted-foreground/70">Powered by Google</p>
+                <p className="text-xs text-muted-foreground/70">Powered by Gemini</p>
               </div>
             </div>
             <Button

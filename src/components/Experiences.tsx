@@ -23,7 +23,7 @@ export function Experiences() {
       company: "8090 Solutions",
       logo: theme === 'light' ? '/logo_8090_dark.svg' : '/logo_8090.svg',
       position: "AI Software Engineering Intern",
-      duration: "May 2025 - Aug 2025",
+      duration: "May - Aug 2025",
       location: "Menlo Park, California",
       description: "Building AI systems and integrating LLMs to enhance enterprise solutions.",
       isUpcoming: true,
@@ -37,7 +37,7 @@ export function Experiences() {
       company: "Pratt & Whitney",
       logo: theme === 'light' ? '/logo_rtx_dark.svg' : '/logo_rtx.svg',
       position: "Software Engineering Intern",
-      duration: "Sep 2024 - Dec 2024",
+      duration: "Sep - Dec 2024",
       location: "Toronto, Ontario",
       description: "Developed full-stack internal tools, optimized SQL queries, and improved backend efficiency.",
       isUpcoming: false,
@@ -51,7 +51,7 @@ export function Experiences() {
       company: "TD Bank", 
       logo: theme === 'light' ? '/logo_td_dark.svg' : '/logo_td.svg',
       position: "Software Engineering Intern",
-      duration: "Jan 2024 - Apr 2024",
+      duration: "Jan - Apr 2024",
       location: "Toronto, Ontario",
       description: "Designed TypeScript microapps, built REST APIs, and streamlined asset loading.",
       isUpcoming: false,
@@ -194,39 +194,63 @@ export function Experiences() {
                 </div>
               </div>
 
-              {/* Info Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-4 text-center">
-                  <div className="flex items-center justify-center gap-2 mb-1">
-                    <Building2 className="w-4 h-4 text-muted-foreground" />
-                    <span className="text-sm font-bold text-foreground">{currentExperience.companyType}</span>
+              {/* Info Grid - Combined on mobile for better space usage */}
+                            {/* Info Section - Mobile: compact list, Desktop: grid cards */}
+              <div className="mb-6">
+                {/* Mobile Layout - Compact inline badges */}
+                <div className="flex flex-col gap-3 sm:hidden">
+                  <div className="flex items-stretch gap-3">
+                    <div className="flex items-center gap-2 flex-1 bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 px-3 py-2.5">
+                      <Building2 className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                      <span className="text-xs font-medium text-foreground">{currentExperience.companyType}</span>
+                    </div>
+                    <div className="flex items-center gap-2 flex-1 bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 px-3 py-2.5">
+                      <TrendingUp className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                      <span className="text-xs font-medium text-foreground">{currentExperience.focus}</span>
+                    </div>
                   </div>
-                  <div className="text-xs text-muted-foreground">Industry</div>
-                </div>
-                <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-4 text-center">
-                  <div className="flex items-center justify-center gap-2 mb-1">
-                    <TrendingUp className="w-4 h-4 text-muted-foreground" />
-                    <span className="text-sm font-bold text-foreground">{currentExperience.focus}</span>
+                  <div className="flex items-stretch gap-3">
+                    <div className="flex items-center gap-2 flex-1 bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 px-3 py-2.5">
+                      <Calendar className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                      <span className="text-xs font-medium text-foreground">{currentExperience.duration}</span>
+                    </div>
+                    <div className="flex items-center gap-2 flex-1 bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 px-3 py-2.5">
+                      <MapPin className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                      <span className="text-xs font-medium text-foreground">{currentExperience.location}</span>
+                    </div>
                   </div>
-                  <div className="text-xs text-muted-foreground">Focus Area</div>
                 </div>
-              </div>
 
-              {/* Duration and Location */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-4 text-center">
-                  <div className="flex items-center justify-center gap-2 mb-1">
-                    <Calendar className="w-4 h-4 text-muted-foreground" />
-                    <span className="text-sm font-medium text-foreground">{currentExperience.duration}</span>
+                {/* Desktop Layout - Original grid cards */}
+                <div className="hidden sm:grid grid-cols-2 gap-4">
+                  <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-4 text-center">
+                    <div className="flex items-center justify-center gap-2 mb-1">
+                      <Building2 className="w-4 h-4 text-muted-foreground" />
+                      <span className="text-sm font-bold text-foreground">{currentExperience.companyType}</span>
+                    </div>
+                    <div className="text-xs text-muted-foreground">Industry</div>
                   </div>
-                  <div className="text-xs text-muted-foreground">Duration</div>
-                </div>
-                <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-4 text-center">
-                  <div className="flex items-center justify-center gap-2 mb-1">
-                    <MapPin className="w-4 h-4 text-muted-foreground" />
-                    <span className="text-sm font-medium text-foreground">{currentExperience.location}</span>
+                  <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-4 text-center">
+                    <div className="flex items-center justify-center gap-2 mb-1">
+                      <TrendingUp className="w-4 h-4 text-muted-foreground" />
+                      <span className="text-sm font-bold text-foreground">{currentExperience.focus}</span>
+                    </div>
+                    <div className="text-xs text-muted-foreground">Focus Area</div>
                   </div>
-                  <div className="text-xs text-muted-foreground">Location</div>
+                  <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-4 text-center">
+                    <div className="flex items-center justify-center gap-2 mb-1">
+                      <Calendar className="w-4 h-4 text-muted-foreground" />
+                      <span className="text-sm font-medium text-foreground">{currentExperience.duration}</span>
+                    </div>
+                    <div className="text-xs text-muted-foreground">Duration</div>
+                  </div>
+                  <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-4 text-center">
+                    <div className="flex items-center justify-center gap-2 mb-1">
+                      <MapPin className="w-4 h-4 text-muted-foreground" />
+                      <span className="text-sm font-medium text-foreground">{currentExperience.location}</span>
+                    </div>
+                    <div className="text-xs text-muted-foreground">Location</div>
+                  </div>
                 </div>
               </div>
 

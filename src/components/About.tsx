@@ -110,7 +110,7 @@ export function About() {
             <div className="bg-background/60 dark:bg-background/20 backdrop-blur-3xl border border-border/50 dark:border-white/10 rounded-[2rem] lg:rounded-[2.5rem] shadow-sm p-6 lg:p-8 h-full">
               
               {/* University Header */}
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-3">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-5 sm:gap-3">
                 <div className="flex items-center gap-3">
                   <GraduationCap className="w-6 h-6 text-muted-foreground" />
                   <h3 className="text-xl font-semibold text-foreground">University of Waterloo</h3>
@@ -128,18 +128,41 @@ export function About() {
                 </h4>
                 
                 {/* Progress Stats - Responsive Layout */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-                  <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-3 text-center">
-                    <div className="text-2xl font-bold text-foreground mb-1">{currentTerm}</div>
-                    <div className="text-xs text-muted-foreground">Current Term</div>
+                <div className="mb-6">
+                  {/* Mobile Layout - Compact badges */}
+                  <div className="flex flex-col gap-3 sm:hidden">
+                    <div className="flex items-stretch gap-3">
+                      <div className="flex items-center justify-center gap-2 flex-1 bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 px-3 py-2.5">
+                        <span className="text-sm font-bold text-foreground">{currentTerm}</span>
+                        <span className="text-xs text-muted-foreground">Term</span>
+                      </div>
+                      <div className="flex items-center justify-center gap-2 flex-1 bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 px-3 py-2.5">
+                        <span className="text-sm font-bold text-foreground">AI / ML</span>
+                        <span className="text-xs text-muted-foreground">Option</span>
+                      </div>
+                    </div>
+                    <div className="flex items-stretch gap-3">
+                      <div className="flex items-center justify-center gap-2 flex-1 bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 px-3 py-2.5">
+                        <span className="text-sm font-bold text-foreground">{progress}%</span>
+                        <span className="text-xs text-muted-foreground">Done</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-3 text-center">
-                    <div className="text-2xl font-bold text-foreground mb-1">AI / ML</div>
-                    <div className="text-xs text-muted-foreground">Specialization</div>
-                  </div>
-                  <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-3 text-center">
-                    <div className="text-2xl font-bold text-foreground mb-1">{progress}%</div>
-                    <div className="text-xs text-muted-foreground">Degree Progress</div>
+
+                  {/* Desktop Layout - Original grid cards */}
+                  <div className="hidden sm:grid grid-cols-3 gap-4">
+                    <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-3 text-center">
+                      <div className="text-2xl font-bold text-foreground mb-1">{currentTerm}</div>
+                      <div className="text-xs text-muted-foreground">Current Term</div>
+                    </div>
+                    <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-3 text-center">
+                      <div className="text-2xl font-bold text-foreground mb-1">AI / ML</div>
+                      <div className="text-xs text-muted-foreground">Specialization</div>
+                    </div>
+                    <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-3 text-center">
+                      <div className="text-2xl font-bold text-foreground mb-1">{progress}%</div>
+                      <div className="text-xs text-muted-foreground">Degree Progress</div>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -11,7 +11,7 @@ export function Projects() {
       <div className="relative z-10 px-6 max-w-6xl mx-auto">
         
         {/* Header */}
-        <div className="flex items-center gap-3 mb-12">
+        <div className="flex items-center gap-3 mb-8">
           <FolderOpen className="w-6 h-6 text-muted-foreground" />
           <h3 className="text-2xl font-semibold text-foreground">Projects & Teams</h3>
         </div>

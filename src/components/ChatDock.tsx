@@ -216,7 +216,7 @@ export const ChatDock: React.FC = () => {
 
         {/* Input area - always at bottom, never moves */}
         <div className={cn(
-          "flex-shrink-0 p-4 h-20",
+          "absolute bottom-0 left-0 right-0 p-4 h-20",
           isExpanded && "border-t border-border/50 dark:border-white/5"
         )}>
           <div className={cn(

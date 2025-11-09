@@ -26,14 +26,14 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
         </Button>
       </div>
 
-      <div className="space-y-8 mt-16">
+      <div className="space-y-8 mt-16 max-w-3xl mx-auto">
         {/* Project Image with Blur Effect */}
-        <div className="relative w-full max-w-xl mx-auto aspect-video overflow-visible px-4 sm:px-0">
+        <div className="relative w-full aspect-video overflow-visible px-4 sm:px-0">
           {/* Glow layer (duplicate image) */}
           <img
             src={project.image}
             alt=""
-            className="absolute inset-0 w-full h-full object-cover blur-3xl scale-110 opacity-60 -z-10"
+            className="absolute inset-0 w-full h-full object-cover blur-3xl scale-110 opacity-90 -z-10"
             aria-hidden="true"
           />
           

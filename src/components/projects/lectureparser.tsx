@@ -8,7 +8,7 @@ export default function LectureParserPage() {
 
   return (
     <main className="relative overflow-hidden pb-20 pt-8">
-      <div className="relative z-10 px-6 max-w-4xl mx-auto">
+      <div className="relative z-10 px-6 max-w-3xl mx-auto">
         
         <ProjectHeader project={project} />
 

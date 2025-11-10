@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
     
     if (!chat) {
       const model = genAI.getGenerativeModel({ 
-        model: 'gemini-2.0-flash-lite-preview-02-05' 
+        model: 'gemini-2.5-flash-lite' 
       })
       
       chat = model.startChat({

@@ -21,9 +21,8 @@ export function Experiences() {
     {
       id: "8090",
       company: "8090 Solutions",
-      logo: theme === 'light' ? '/logo_8090_dark.svg' : '/logo_8090.svg',
       position: "AI Software Engineering Intern",
-      duration: "May 2025 - Aug 2025",
+      duration: "May - Aug 2025",
       location: "Menlo Park, California",
       description: "Building AI systems and integrating LLMs to enhance enterprise solutions.",
       isUpcoming: true,
@@ -35,9 +34,8 @@ export function Experiences() {
     {
       id: "rtx", 
       company: "Pratt & Whitney",
-      logo: theme === 'light' ? '/logo_rtx_dark.svg' : '/logo_rtx.svg',
       position: "Software Engineering Intern",
-      duration: "Sep 2024 - Dec 2024",
+      duration: "Sep - Dec 2024",
       location: "Toronto, Ontario",
       description: "Developed full-stack internal tools, optimized SQL queries, and improved backend efficiency.",
       isUpcoming: false,
@@ -49,9 +47,8 @@ export function Experiences() {
     {
       id: "td",
       company: "TD Bank", 
-      logo: theme === 'light' ? '/logo_td_dark.svg' : '/logo_td.svg',
       position: "Software Engineering Intern",
-      duration: "Jan 2024 - Apr 2024",
+      duration: "Jan - Apr 2024",
       location: "Toronto, Ontario",
       description: "Designed TypeScript microapps, built REST APIs, and streamlined asset loading.",
       isUpcoming: false,
@@ -93,20 +90,32 @@ export function Experiences() {
 
   const currentExperience = experiences[isEntering ? nextCompany : selectedCompany]
 
-  if (!mounted) return null
+  // Define logo sources based on theme (like navbar does)
+  const logo8090Src = mounted && theme === 'light' ? '/logo_8090_dark.svg' : '/logo_8090.svg'
+  const logoRtxSrc = mounted && theme === 'light' ? '/logo_rtx_dark.svg' : '/logo_rtx.svg'
+  const logoTdSrc = mounted && theme === 'light' ? '/logo_td_dark.svg' : '/logo_td.svg'
+
+  const getLogoSrc = (companyId: string) => {
+    switch (companyId) {
+      case '8090': return logo8090Src
+      case 'rtx': return logoRtxSrc
+      case 'td': return logoTdSrc
+      default: return ''
+    }
+  }
 
   return (
     <section className="relative overflow-hidden pb-20 pt-0">
       <div className="relative z-10 px-6 max-w-6xl mx-auto">
         
         {/* Header */}
-        <div className="flex items-center gap-3 mb-12">
+        <div className="flex items-center gap-3 mb-8">
           <Briefcase className="w-6 h-6 text-muted-foreground" />
           <h3 className="text-2xl font-semibold text-foreground">Work Experience</h3>
         </div>
 
         {/* Mobile Company Selection */}
-        <div className="mb-8 lg:hidden">
+        <div className="mb-6 lg:hidden">
           <div className="bg-background/60 dark:bg-background/20 backdrop-blur-3xl border border-border/50 dark:border-white/10 rounded-[2rem] lg:rounded-[2.5rem] shadow-sm p-6">
             <div className="flex items-center justify-center gap-4">
               {experiences.map((exp, index) => (
@@ -120,11 +129,11 @@ export function Experiences() {
                   }`}
                 >
                   <Image 
-                    src={exp.logo} 
+                    src={getLogoSrc(exp.id)} 
                     alt={`${exp.company} logo`}
                     width={72}
                     height={72}
-                    className="w-full h-full object-contain"
+                    className="h-full w-auto transition-opacity duration-200"
                   />
                 </button>
               ))}
@@ -150,11 +159,11 @@ export function Experiences() {
                     }`}
                   >
                     <Image 
-                      src={exp.logo} 
+                      src={getLogoSrc(exp.id)} 
                       alt={`${exp.company} logo`}
                       width={72}
                       height={72}
-                      className="w-full h-full object-contain"
+                      className="h-full w-auto transition-opacity duration-200"
                     />
                   </button>
                 ))}
@@ -179,11 +188,11 @@ export function Experiences() {
               <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
                 <div className="hidden sm:flex w-16 h-16 bg-muted/50 dark:bg-white/5 rounded-xl items-center justify-center p-3 flex-shrink-0">
                   <Image 
-                    src={currentExperience.logo} 
+                    src={getLogoSrc(currentExperience.id)} 
                     alt={`${currentExperience.company} logo`}
                     width={64}
                     height={64}
-                    className="w-full h-full object-contain"
+                    className="h-full w-auto transition-opacity duration-200"
                   />
                 </div>
                 <div className="min-w-0">
@@ -194,39 +203,63 @@ export function Experiences() {
                 </div>
               </div>
 
-              {/* Info Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-4 text-center">
-                  <div className="flex items-center justify-center gap-2 mb-1">
-                    <Building2 className="w-4 h-4 text-muted-foreground" />
-                    <span className="text-sm font-bold text-foreground">{currentExperience.companyType}</span>
+              {/* Info Grid - Combined on mobile for better space usage */}
+                            {/* Info Section - Mobile: compact list, Desktop: grid cards */}
+              <div className="mb-6">
+                {/* Mobile Layout - Compact inline badges */}
+                <div className="flex flex-col gap-3 sm:hidden">
+                  <div className="flex items-stretch gap-3">
+                    <div className="flex items-center gap-2 flex-1 bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 px-3 py-2.5">
+                      <Building2 className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                      <span className="text-xs font-medium text-foreground">{currentExperience.companyType}</span>
+                    </div>
+                    <div className="flex items-center gap-2 flex-1 bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 px-3 py-2.5">
+                      <TrendingUp className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                      <span className="text-xs font-medium text-foreground">{currentExperience.focus}</span>
+                    </div>
                   </div>
-                  <div className="text-xs text-muted-foreground">Industry</div>
-                </div>
-                <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-4 text-center">
-                  <div className="flex items-center justify-center gap-2 mb-1">
-                    <TrendingUp className="w-4 h-4 text-muted-foreground" />
-                    <span className="text-sm font-bold text-foreground">{currentExperience.focus}</span>
+                  <div className="flex items-stretch gap-3">
+                    <div className="flex items-center gap-2 flex-1 bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 px-3 py-2.5">
+                      <Calendar className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                      <span className="text-xs font-medium text-foreground">{currentExperience.duration}</span>
+                    </div>
+                    <div className="flex items-center gap-2 flex-1 bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 px-3 py-2.5">
+                      <MapPin className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                      <span className="text-xs font-medium text-foreground">{currentExperience.location}</span>
+                    </div>
                   </div>
-                  <div className="text-xs text-muted-foreground">Focus Area</div>
                 </div>
-              </div>
 
-              {/* Duration and Location */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-4 text-center">
-                  <div className="flex items-center justify-center gap-2 mb-1">
-                    <Calendar className="w-4 h-4 text-muted-foreground" />
-                    <span className="text-sm font-medium text-foreground">{currentExperience.duration}</span>
+                {/* Desktop Layout - Original grid cards */}
+                <div className="hidden sm:grid grid-cols-2 gap-4">
+                  <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-4 text-center">
+                    <div className="flex items-center justify-center gap-2 mb-1">
+                      <Building2 className="w-4 h-4 text-muted-foreground" />
+                      <span className="text-sm font-bold text-foreground">{currentExperience.companyType}</span>
+                    </div>
+                    <div className="text-xs text-muted-foreground">Industry</div>
                   </div>
-                  <div className="text-xs text-muted-foreground">Duration</div>
-                </div>
-                <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-4 text-center">
-                  <div className="flex items-center justify-center gap-2 mb-1">
-                    <MapPin className="w-4 h-4 text-muted-foreground" />
-                    <span className="text-sm font-medium text-foreground">{currentExperience.location}</span>
+                  <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-4 text-center">
+                    <div className="flex items-center justify-center gap-2 mb-1">
+                      <TrendingUp className="w-4 h-4 text-muted-foreground" />
+                      <span className="text-sm font-bold text-foreground">{currentExperience.focus}</span>
+                    </div>
+                    <div className="text-xs text-muted-foreground">Focus Area</div>
                   </div>
-                  <div className="text-xs text-muted-foreground">Location</div>
+                  <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-4 text-center">
+                    <div className="flex items-center justify-center gap-2 mb-1">
+                      <Calendar className="w-4 h-4 text-muted-foreground" />
+                      <span className="text-sm font-medium text-foreground">{currentExperience.duration}</span>
+                    </div>
+                    <div className="text-xs text-muted-foreground">Duration</div>
+                  </div>
+                  <div className="bg-muted/50 dark:bg-white/5 rounded-xl border border-border/30 dark:border-white/5 p-4 text-center">
+                    <div className="flex items-center justify-center gap-2 mb-1">
+                      <MapPin className="w-4 h-4 text-muted-foreground" />
+                      <span className="text-sm font-medium text-foreground">{currentExperience.location}</span>
+                    </div>
+                    <div className="text-xs text-muted-foreground">Location</div>
+                  </div>
                 </div>
               </div>
 

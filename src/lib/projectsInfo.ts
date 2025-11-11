@@ -16,7 +16,7 @@ export const projectsBasicInfo: ProjectBasicInfo[] = [
   },
   {
     id: "lectureparser",
-    title: "Vision-Based Lecture Summarizer",
+    title: "Lecture Summarizer",
     year: "2025",
     description: "Pipeline that extracts and summarizes lecture slides into Markdown notes using vision-language models.",
     image: "/project_lectureparser.png",
@@ -30,7 +30,7 @@ export const projectsBasicInfo: ProjectBasicInfo[] = [
   },
   {
     id: "clai",
-    title: "LLM Cover Letter Generator",
+    title: "LLM CL Generator",
     year: "2025",
     description: "AI assistant that creates custom cover letters directly from job posting URLs.",
     image: "/project_clai.png",
@@ -39,7 +39,7 @@ export const projectsBasicInfo: ProjectBasicInfo[] = [
     id: "watai",
     title: "WAT.ai",
     year: "2024",
-    description: "Machine learning model that predicts Toronto transit delays to help commuters plan more efficiently.",
+    description: "Machine learning model that predicts Toronto transit delays to help commuters plan their day.",
     image: "/project_watai.png",
   }
 ]

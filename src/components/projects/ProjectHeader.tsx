@@ -18,7 +18,7 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
       <div className="mb-4">
         <Button 
           variant="ghost" 
-          onClick={() => router.push('/#projects')}
+          onClick={() => router.push('/')}
           className="gap-2 hover:bg-muted/50"
         >
           <ArrowLeft className="w-4 h-4" />

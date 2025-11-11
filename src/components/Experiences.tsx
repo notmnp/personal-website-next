@@ -21,7 +21,7 @@ export function Experiences() {
     {
       id: "8090",
       company: "8090 Solutions",
-      position: "AI Software Engineering Intern",
+      position: "Member of Technical Staff",
       duration: "May - Aug 2025",
       location: "Menlo Park, California",
       description: "Building AI systems and integrating LLMs to enhance enterprise solutions.",

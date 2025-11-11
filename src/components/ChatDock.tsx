@@ -105,12 +105,20 @@ export const ChatDock: React.FC = () => {
         `}
       </style>
       
+      {isExpanded && (
+        <div 
+          className="fixed inset-0 z-[10001] bg-black/20 dark:bg-black/40 backdrop-blur-[2px] animate-in fade-in duration-300"
+          onClick={handleClose}
+          aria-hidden="true"
+        />
+      )}
+      
       {/* Bottom gradient shadow */}
       <div className="hidden md:block fixed bottom-0 left-0 right-0 h-[calc(1.5rem+2.5rem)] pointer-events-none z-40 bg-gradient-to-t from-white/60 dark:from-black/60 to-transparent" />
       
       <div className={cn(
         "hidden md:flex",
-        "fixed bottom-6 left-1/2 z-50",
+        "fixed bottom-6 left-1/2 z-[10002]",
         "slide-up-delayed",
         "bg-background/70 dark:bg-background/70 backdrop-blur-3xl",
         "border border-border/50 dark:border-white/10 rounded-[2rem] lg:rounded-[2.5rem] shadow-sm",

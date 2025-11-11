@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { ArrowUp, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import ReactMarkdown from 'react-markdown'
 
 interface Message {
   role: 'user' | 'bot'
@@ -158,7 +159,7 @@ export const ChatDock: React.FC = () => {
 
         {/* Messages area - scrollable */}
         {isExpanded && (
-          <div className="flex-1 overflow-y-auto p-5 space-y-4 min-h-0 scrollbar-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          <div className="flex-1 overflow-y-auto p-5 mb-20 space-y-4 min-h-0 scrollbar-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             {messages.length === 0 && !isLoading ? (
               <div className="flex h-full items-center justify-center">
                 <div className="text-center space-y-3">
@@ -190,24 +191,41 @@ export const ChatDock: React.FC = () => {
                       message.role === 'user' && "flex-row-reverse"
                     )}
                   >
-                    <div
+                    <div 
                       className={cn(
                         "px-4 py-3 max-w-[85%] rounded-2xl text-sm",
                         message.role === 'user'
                           ? "bg-[#0078D4] text-white rounded-br-md"
-                          : "bg-muted/100 dark:bg-white/10 rounded-bl-md border border-border/30 dark:border-white/5"
+                          : "bg-gray-200 dark:bg-white/10 rounded-bl-md border border-border/30 dark:border-white/5"
                       )}
                     >
-                      <pre className="whitespace-pre-wrap font-sans text-sm leading-relaxed">
-                        {message.content}
-                      </pre>
+                      {message.role === 'bot' ? (
+                        <div className="whitespace-pre-wrap font-sans text-sm leading-relaxed">
+                          <ReactMarkdown
+                            components={{
+                              a: (props) => {
+                                const href = props.href || ''
+                                const url = href.startsWith('http') ? href : `https://${href}`
+                                return <a {...props} href={url} target="_blank" rel="noopener noreferrer" className="text-[#0078D4] hover:underline font-medium" />
+                              },
+                              p: (props) => <span {...props} />,
+                            }}
+                          >
+                            {message.content}
+                          </ReactMarkdown>
+                        </div>
+                      ) : (
+                        <pre className="whitespace-pre-wrap font-sans text-sm leading-relaxed">
+                          {message.content}
+                        </pre>
+                      )}
                     </div>
                   </div>
                 ))}
 
                 {isLoading && (
                   <div className="flex gap-3 animate-in fade-in slide-in-from-bottom-2 duration-300">
-                    <div className="px-4 py-3 rounded-2xl rounded-bl-md bg-muted/50 dark:bg-white/10 backdrop-blur-sm border border-border/30 dark:border-white/5">
+                    <div className="px-4 py-3 rounded-2xl rounded-bl-md bg-gray-200 dark:bg-white/10 backdrop-blur-sm border border-border/30 dark:border-white/5">
                       <div className="flex items-center gap-2 h-5">
                         <div className="w-2 h-2 bg-muted-foreground/60 rounded-full animate-[bounce_1.4s_ease-in-out_infinite]" />
                         <div className="w-2 h-2 bg-muted-foreground/60 rounded-full animate-[bounce_1.4s_ease-in-out_infinite_0.2s]" />

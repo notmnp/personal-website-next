@@ -1,6 +1,15 @@
 "use client"
 
-import { Calendar, MapPin, Briefcase, GraduationCap, User, Mail, TrendingUp } from 'lucide-react'
+import { Calendar, Briefcase, GraduationCap, User, Mail } from 'lucide-react'
+import { Marquee } from "@/components/ui/marquee"
+import { 
+  SiPython, SiCplusplus, SiHtml5, SiCss3, SiJavascript, 
+  SiTypescript, SiPhp, SiPostgresql, SiMysql, SiReact, SiFastapi, 
+  SiSymfony, SiGit, SiGithub, SiPostman, 
+  SiAmazon, SiJira, SiConfluence, SiDocker, SiSelenium, SiStripe 
+} from 'react-icons/si'
+import { FaJava } from 'react-icons/fa'
+import { VscVscode } from 'react-icons/vsc'
 
 export function About() {
   // Calculate dynamic degree progress
@@ -51,57 +60,87 @@ export function About() {
         {/* Status & Education Boxes */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
           
-          {/* Status Dashboard */}
-          <div className="bg-background/70 dark:bg-background/20 backdrop-blur-3xl border border-border/50 dark:border-white/10 rounded-[2rem] lg:rounded-[2.5rem] shadow-sm p-6 lg:p-8">
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg font-semibold text-foreground">Status</h3>
-              <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+          <div className="flex flex-col gap-6 lg:gap-8">
+            {/* Status Container */}
+            <div className="bg-background/70 dark:bg-background/20 backdrop-blur-3xl border border-border/50 dark:border-white/10 rounded-[2rem] lg:rounded-[2.5rem] shadow-sm p-6 lg:p-8">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <Calendar className="w-5 h-5 text-muted-foreground flex-shrink-0" />
+                  <div className="min-w-0 flex-1">
+                    <p className="font-medium text-foreground">Interning at 8090</p>
+                    <p className="text-sm text-muted-foreground">Winter 2026</p>
+                  </div>
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse flex-shrink-0"></div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <Briefcase className="w-5 h-5 text-muted-foreground flex-shrink-0" />
+                  <div className="min-w-0">
+                    <p className="font-medium text-foreground">Seeking Internships</p>
+                    <p className="text-sm text-muted-foreground">Fall 2026</p>
+                  </div>
+                </div>
+
+                <a href="mailto:mpattni@uwaterloo.ca" className="flex items-center gap-3 cursor-pointer group">
+                  <Mail className="w-5 h-5 text-muted-foreground flex-shrink-0" />
+                  <div className="min-w-0">
+                    <p className="font-medium text-foreground group-hover:text-foreground/80 break-words">
+                      mpattni@uwaterloo.ca
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Get in touch
+                    </p>
+                  </div>
+                </a>
+              </div>
             </div>
-            
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <Calendar className="w-5 h-5 text-muted-foreground flex-shrink-0" />
-                <div className="min-w-0">
-                  <p className="font-medium text-foreground">Interning at 8090</p>
-                  <p className="text-sm text-muted-foreground">Winter 2026</p>
-                </div>
-              </div>
 
-              <div className="flex items-center gap-3">
-                <Briefcase className="w-5 h-5 text-muted-foreground flex-shrink-0" />
-                <div className="min-w-0">
-                  <p className="font-medium text-foreground">Seeking Internships</p>
-                  <p className="text-sm text-muted-foreground">Fall 2026</p>
+            {/* Marquee Container */}
+            <div className="bg-background/70 dark:bg-background/20 backdrop-blur-3xl border border-border/50 dark:border-white/10 rounded-[2rem] lg:rounded-[2.5rem] shadow-sm p-6 lg:p-8">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  {/* First marquee of icons */}
+                  <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+                    <Marquee pauseOnHover className="[--duration:20s]">
+                      <SiPython className="w-7 h-7 text-muted-foreground" title="Python" />
+                      <FaJava className="w-7 h-7 text-muted-foreground" title="Java" />
+                      <SiCplusplus className="w-7 h-7 text-muted-foreground" title="C++" />
+                      <SiHtml5 className="w-7 h-7 text-muted-foreground" title="HTML5" />
+                      <SiCss3 className="w-7 h-7 text-muted-foreground" title="CSS3" />
+                      <SiJavascript className="w-7 h-7 text-muted-foreground" title="JavaScript" />
+                      <SiTypescript className="w-7 h-7 text-muted-foreground" title="TypeScript" />
+                      <SiPhp className="w-7 h-7 text-muted-foreground" title="PHP" />
+                      <SiPostgresql className="w-7 h-7 text-muted-foreground" title="PostgreSQL" />
+                      <SiMysql className="w-7 h-7 text-muted-foreground" title="MySQL" />
+                      <SiReact className="w-7 h-7 text-muted-foreground" title="React" />
+                      <SiFastapi className="w-7 h-7 text-muted-foreground" title="FastAPI" />
+                      <SiSymfony className="w-7 h-7 text-muted-foreground" title="Symfony" />
+                    </Marquee>
+                    <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background" />
+                    <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background" />
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                  {/* Second marquee of icons */}
+                  <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+                    <Marquee reverse pauseOnHover className="[--duration:20s]">
+                      <SiGit className="w-7 h-7 text-muted-foreground" title="Git" />
+                      <SiGithub className="w-7 h-7 text-muted-foreground" title="GitHub" />
+                      <VscVscode className="w-7 h-7 text-muted-foreground" title="VS Code" />
+                      <SiPostman className="w-7 h-7 text-muted-foreground" title="Postman" />
+                      <SiAmazon className="w-7 h-7 text-muted-foreground" title="AWS" />
+                      <SiJira className="w-7 h-7 text-muted-foreground" title="Jira" />
+                      <SiConfluence className="w-7 h-7 text-muted-foreground" title="Confluence" />
+                      <SiDocker className="w-7 h-7 text-muted-foreground" title="Docker" />
+                      <SiSelenium className="w-7 h-7 text-muted-foreground" title="Selenium" />
+                      <SiStripe className="w-7 h-7 text-muted-foreground" title="Stripe" />
+                    </Marquee>
+                    <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background" />
+                    <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background" />
+                  </div>
                 </div>
               </div>
-
-              <div className="flex items-center gap-3">
-                <TrendingUp className="w-5 h-5 text-muted-foreground flex-shrink-0" />
-                <div className="min-w-0">
-                  <p className="font-medium text-foreground">2+ Years Experience</p>
-                  <p className="text-sm text-muted-foreground">Software development</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-3">
-                <MapPin className="w-5 h-5 text-muted-foreground flex-shrink-0" />
-                <div className="min-w-0">
-                  <p className="font-medium text-foreground">Toronto, ON</p>
-                  <p className="text-sm text-muted-foreground">Open to travel</p>
-                </div>
-              </div>
-
-              <a href="mailto:mpattni@uwaterloo.ca" className="flex items-center gap-3 cursor-pointer group">
-                <Mail className="w-5 h-5 text-muted-foreground flex-shrink-0" />
-                <div className="min-w-0">
-                  <p className="font-medium text-foreground group-hover:text-foreground/80 break-words">
-                    mpattni@uwaterloo.ca
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    Get in touch
-                  </p>
-                </div>
-              </a>
             </div>
           </div>
 

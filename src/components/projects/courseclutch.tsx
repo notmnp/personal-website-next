@@ -10,7 +10,7 @@ export default function CourseClutchPage() {
     <main className="relative overflow-hidden pb-20 pt-8">
       <div className="relative z-10 px-6 max-w-3xl mx-auto">
         
-        <ProjectHeader project={project} />
+        <ProjectHeader project={project} blurIntensity="low" />
 
         <div className="space-y-8 mt-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">

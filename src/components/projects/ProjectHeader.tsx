@@ -7,9 +7,10 @@ import type { ProjectBasicInfo } from '@/lib/projectsInfo'
 
 interface ProjectHeaderProps {
   project: ProjectBasicInfo
+  blurIntensity?: 'low' | 'normal' | 'more'
 }
 
-export function ProjectHeader({ project }: ProjectHeaderProps) {
+export function ProjectHeader({ project, blurIntensity = 'normal' }: ProjectHeaderProps) {
   const router = useRouter()
 
   return (
@@ -26,14 +27,18 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
         </Button>
       </div>
 
-      <div className="space-y-8 mt-16 max-w-3xl mx-auto">
+      <div className="space-y-8 mt-8 max-w-3xl mx-auto">
         {/* Project Image with Blur Effect */}
-        <div className="relative w-full aspect-video overflow-visible px-4 sm:px-0">
+        <div className="relative w-full overflow-visible">
           {/* Glow layer (duplicate image) */}
           <img
             src={project.image}
             alt=""
-            className="absolute inset-0 w-full h-full object-cover blur-3xl scale-110 opacity-90 -z-10"
+            className={`absolute inset-0 w-full h-full object-cover blur-3xl scale-110 -z-10 ${
+              blurIntensity === 'low' ? 'opacity-40' : 
+              blurIntensity === 'more' ? 'opacity-100' : 
+              'opacity-70'
+            }`}
             aria-hidden="true"
           />
           
@@ -41,7 +46,7 @@ export function ProjectHeader({ project }: ProjectHeaderProps) {
           <img
             src={project.image}
             alt={project.title}
-            className="relative z-10 w-full h-full object-cover rounded-xl sm:rounded-2xl border border-border/30 dark:border-white/5"
+            className="relative z-10 w-full h-auto rounded-xl sm:rounded-2xl border border-border/30 dark:border-white/5"
           />
         </div>
 

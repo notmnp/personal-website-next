@@ -10,7 +10,7 @@ export default function MinimaxPage() {
     <main className="relative overflow-hidden pb-20 pt-8">
       <div className="relative z-10 px-6 max-w-3xl mx-auto">
         
-        <ProjectHeader project={project} />
+        <ProjectHeader project={project} blurIntensity="more" />
 
         <div className="space-y-8 mt-8">
 

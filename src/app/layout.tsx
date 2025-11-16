@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Milan Pattni",
-  description: "Hey! I'm Milan, a Mechatronics Engineering Student at the University of Waterloo. Currently an Intern at 8090 Solutions!",
-  keywords: ["Milan Pattni", "Mechatronics Engineering", "University of Waterloo", "AI", "Machine Learning", "Software Engineer"],
+  description: "Hey! I'm Milan, a Mechatronics Engineering Student at the University of Waterloo. Currently seeking Fall 2026 Internships.",
+  keywords: ["Milan Pattni", "Engineering", "University of Waterloo", "AI", "Machine Learning", "Software Engineer"],
 };
 
 export default function RootLayout({

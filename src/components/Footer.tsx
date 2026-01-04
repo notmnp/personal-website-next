@@ -1,6 +1,7 @@
 "use client"
 
 import { Linkedin, FileText, Mail, Github, GraduationCap, Gamepad2, Train, Sparkles } from 'lucide-react'
+import { SiX } from 'react-icons/si'
 import { useState, useEffect } from 'react'
 
 export function Footer() {
@@ -125,6 +126,17 @@ export function Footer() {
                   >
                     <Linkedin className="w-4 h-4" />
                     LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://x.com/notmnp" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <SiX className="w-4 h-4" />
+                    X
                   </a>
                 </li>
                 <li>

@@ -29,7 +29,7 @@ export const ChatDock: React.FC = () => {
   }, [messages, isLoading])
 
   const handleSend = async () => {
-    if (!input.trim()) return
+    if (!input.trim() || isLoading) return
 
     if (!isExpanded) {
       setIsExpanded(true)
@@ -56,6 +56,9 @@ export const ChatDock: React.FC = () => {
 
       if (response.ok) {
         setMessages(prev => [...prev, { role: 'bot', content: data.response }])
+      } else if (response.status === 429) {
+        // Rate limit error - show user-friendly message
+        setMessages(prev => [...prev, { role: 'bot', content: data.error || 'Rate limit exceeded. Please try again later.' }])
       } else {
         throw new Error(data.error || 'Failed to get response')
       }
@@ -68,6 +71,8 @@ export const ChatDock: React.FC = () => {
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (isLoading) return
+    
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault()
       handleSend()

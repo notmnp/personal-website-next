@@ -2,6 +2,7 @@ import { Navbar } from '@/components/Navbar'
 import { Button } from '@/components/ui/button'
 import { ChatDock } from '@/components/ChatDock'
 import { Linkedin, FileText, Github, Mail } from 'lucide-react'
+import { SiX } from 'react-icons/si'
 import { cn } from '@/lib/utils'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { About } from '@/components/About'
@@ -65,6 +66,22 @@ export default function Home() {
                 </TooltipTrigger>
                 <TooltipContent side="top">
                   <p>LinkedIn</p>
+                </TooltipContent>
+              </Tooltip>
+
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a 
+                    href="https://x.com/notmnp" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                  >
+                    <SiX className="w-7 h-7" />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent side="top">
+                  <p>X</p>
                 </TooltipContent>
               </Tooltip>
 
